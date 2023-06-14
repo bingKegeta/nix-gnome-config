@@ -14,8 +14,6 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -87,43 +85,36 @@
     description = "Tunei Konra";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
+    packages = with pkgs; [
+      firefox
+    #  thunderbird
+    ];
   };
 
   # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = (_: true);
-  };
+  nixpkgs.config.allowUnfree = true;
 
-  # Home-manager Stuff
+  # Allow home-manager to install unfree packages
   home-manager.useGlobalPkgs = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     vim
      wget
      gnome.gnome-tweaks
      gettext
      neofetch
      python3Full
      conda
-     cinnamon.nemo
      jdk
      nodejs
      git
-     adw-gtk3
-     pywal
-     gtk-engine-murrine
-     ocs-url
      gcc
      cmake
      direnv
      home-manager
      zsh
-     zsh-powerlevel10k
-     zsh-fast-syntax-highlighting
-     zsh-autocomplete
      powerline-fonts
   ];
 
@@ -154,24 +145,16 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
-  # Added Later
-  
   # NVIDIA drivers are unfree
-  
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.enable = true;
 
-  # Optionally, you may need to select the appropriate driver version for your specific GPU.
+  # Optionally, you may need to select the appropriate driver version for your specfic GPU
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
   # nvidia-drm.modeset=1 is required for some wayland compositors, e.g. sway
   hardware.nvidia.modesetting.enable = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
   programs.zsh.enable = true;
+
 }
