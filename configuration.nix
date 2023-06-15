@@ -157,4 +157,10 @@
 
   programs.zsh.enable = true;
 
+  # Set the system to auto update and reboot if needed every day
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
+  };
+
 }
