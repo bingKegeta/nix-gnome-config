@@ -54,6 +54,7 @@
     gnomeExtensions.rounded-window-corners
     gnomeExtensions.dash-to-dock
     gnomeExtensions.user-themes
+    gnomeExtensions.appindicator
     
     # Themes, Icons and Cursors
     gtk-engine-murrine
@@ -145,6 +146,8 @@
         "rounded-window-corners@yilozt"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "Resource_Monitor@Ory0n"
+        "useless-gaps@pimsnel.com"
+        "appindicatorsupport@rgcjonas.gmail.com"
       ];
     };
     # Set the shell theme
