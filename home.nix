@@ -44,9 +44,9 @@
     jetbrains-toolbox
     gnome.dconf-editor
     fzf
+    ryujinx
     
     # GNOME Extensions Install
-    gnomeExtensions.aylurs-widgets
     gnomeExtensions.caffeine
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.resource-monitor
@@ -55,6 +55,8 @@
     gnomeExtensions.dash-to-dock
     gnomeExtensions.user-themes
     gnomeExtensions.appindicator
+    gnomeExtensions.spotify-controller
+    gnomeExtensions.spotify-tray
     
     # Themes, Icons and Cursors
     gtk-engine-murrine
@@ -148,6 +150,8 @@
         "Resource_Monitor@Ory0n"
         "useless-gaps@pimsnel.com"
         "appindicatorsupport@rgcjonas.gmail.com"
+        "spotify-controller@koolskateguy89"
+        "sp-tray@sp-tray.esenliyim.github.com"
       ];
     };
     # Set the shell theme
